@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@plugin '../hero.ts';
+
+@source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans: "Space Grotesk", sans-serif;
+    --font-mono: "Space Mono", monospace;
+}
+
+:root {
+    --archive-void: radial-gradient(1200px 800px at 10% -20%, rgba(15, 23, 42, 0.9), transparent 60%),
+        radial-gradient(900px 700px at 90% -10%, rgba(30, 41, 59, 0.7), transparent 55%),
+        radial-gradient(700px 600px at 50% 110%, rgba(15, 23, 42, 0.8), transparent 65%);
+    --archive-nebula: radial-gradient(700px 500px at 20% 80%, rgba(56, 189, 248, 0.12), transparent 65%),
+        radial-gradient(600px 500px at 80% 70%, rgba(99, 102, 241, 0.16), transparent 70%);
+    --archive-stars: radial-gradient(1px 1px at 8% 22%, rgba(248, 250, 252, 0.6), transparent 1px),
+        radial-gradient(1px 1px at 18% 78%, rgba(226, 232, 240, 0.5), transparent 1px),
+        radial-gradient(1px 1px at 28% 40%, rgba(248, 250, 252, 0.55), transparent 1px),
+        radial-gradient(1px 1px at 36% 65%, rgba(226, 232, 240, 0.45), transparent 1px),
+        radial-gradient(1px 1px at 46% 25%, rgba(248, 250, 252, 0.6), transparent 1px),
+        radial-gradient(1px 1px at 55% 75%, rgba(226, 232, 240, 0.4), transparent 1px),
+        radial-gradient(1px 1px at 64% 35%, rgba(248, 250, 252, 0.55), transparent 1px),
+        radial-gradient(1px 1px at 72% 55%, rgba(226, 232, 240, 0.45), transparent 1px),
+        radial-gradient(1px 1px at 82% 28%, rgba(248, 250, 252, 0.6), transparent 1px),
+        radial-gradient(1px 1px at 90% 62%, rgba(226, 232, 240, 0.45), transparent 1px),
+        radial-gradient(1px 1px at 12% 52%, rgba(248, 250, 252, 0.5), transparent 1px),
+        radial-gradient(1px 1px at 40% 15%, rgba(226, 232, 240, 0.4), transparent 1px);
+}
+
+.dark {
+    --archive-void: radial-gradient(1200px 800px at 10% -20%, rgba(2, 6, 23, 0.9), transparent 60%),
+        radial-gradient(900px 700px at 90% -10%, rgba(15, 23, 42, 0.8), transparent 55%),
+        radial-gradient(700px 600px at 50% 110%, rgba(2, 6, 23, 0.9), transparent 65%);
+    --archive-nebula: radial-gradient(700px 500px at 20% 80%, rgba(56, 189, 248, 0.14), transparent 65%),
+        radial-gradient(600px 500px at 80% 70%, rgba(129, 140, 248, 0.18), transparent 70%);
+    --archive-stars: radial-gradient(1px 1px at 8% 22%, rgba(226, 232, 240, 0.45), transparent 1px),
+        radial-gradient(1px 1px at 18% 78%, rgba(148, 163, 184, 0.35), transparent 1px),
+        radial-gradient(1px 1px at 28% 40%, rgba(226, 232, 240, 0.4), transparent 1px),
+        radial-gradient(1px 1px at 36% 65%, rgba(148, 163, 184, 0.3), transparent 1px),
+        radial-gradient(1px 1px at 46% 25%, rgba(226, 232, 240, 0.45), transparent 1px),
+        radial-gradient(1px 1px at 55% 75%, rgba(148, 163, 184, 0.28), transparent 1px),
+        radial-gradient(1px 1px at 64% 35%, rgba(226, 232, 240, 0.4), transparent 1px),
+        radial-gradient(1px 1px at 72% 55%, rgba(148, 163, 184, 0.3), transparent 1px),
+        radial-gradient(1px 1px at 82% 28%, rgba(226, 232, 240, 0.45), transparent 1px),
+        radial-gradient(1px 1px at 90% 62%, rgba(148, 163, 184, 0.3), transparent 1px),
+        radial-gradient(1px 1px at 12% 52%, rgba(226, 232, 240, 0.38), transparent 1px),
+        radial-gradient(1px 1px at 40% 15%, rgba(148, 163, 184, 0.28), transparent 1px);
+}
+
+html {
+    background-color: hsl(var(--background));
+}
+
+body {
+    background: transparent;
+}
+
+.space-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-color: hsl(var(--background));
+    background-image: var(--archive-void), var(--archive-nebula), var(--archive-stars);
+    background-size: 100% 100%, 100% 100%, 100% 100%;
+    background-position: center, center, center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    pointer-events: none;
+}
+
+[data-overlay-container] {
+    background-image: none !important;
+    background-color: transparent !important;
+}
